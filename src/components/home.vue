@@ -26,11 +26,12 @@
         <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
+    <checklist :title="$t('Preselect China and Japan (disabled)')" disabled label-position="left" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
   </div>
 </template>
 
 <script>
-import { Tabbar, TabbarItem, Group, Cell, XHeader, Grid, GridItem, Swiper, Panel } from 'vux'
+import { Tabbar, TabbarItem, Group, Cell, XHeader, Grid, GridItem, Swiper, Panel, Checklist } from 'vux'
 
 const baseList = [{
   url: 'javascript:',
@@ -56,6 +57,7 @@ const urlList = baseList.map((item, index) => ({
 
 export default {
   components: {
+    Checklis,
     Panel,
     XHeader,
     Tabbar,
