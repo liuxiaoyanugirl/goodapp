@@ -1,40 +1,30 @@
 <template>
-  <div>
+  
     <div class="container">
-      <br>
-    <x-header>This is the page title.</x-header>
-    <br>
+    <x-header :left-options="{showBack: true}">This is the page title.</x-header>
     <group title="用户登录">
-      <x-input title="手机号码" name="mobile" placeholder="请输入手机号码" keyboard="number" is-type="china-mobile"></x-input>
+      <x-input title="手机号码" mask="999 9999 9999" v-model="phone"></x-input>
+       <x-input title="密码" type="password" v-model="password"></x-input>
     </group>
-
-     
-    </div>
-    <group title="cell demo">
-      <cell title="VUX" value="cool" is-link></cell>
-    </group>
+    <div class="btn">
+      <x-button @click.native="login">登录</x-button>>
   </div>
 </template>
 
 <script>
-import { Group, Cell, XInput, XButton } from 'vux'
-
+import { AlertModule, Group, Cell, XInput, XButton, Aler, XHeader } from 'vux'
+                            
 export default {
   components: {
     Group,
     Cell,
     XButton,
     XInput,
+    AlertModule,
+    Aler,
+    XHeader
   },
-  data () {
-    return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
-      msg: 'Hello World!'
-    }
-  }
+
 }
 </script>
 
