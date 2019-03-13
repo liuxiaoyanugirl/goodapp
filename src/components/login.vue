@@ -1,8 +1,14 @@
 <template>
   <div>
-    <div class="vux-demo">
-      <img class="logo" src="../assets/vux_logo.png">
-      <h1> </h1>
+    <div class="container">
+      <br>
+    <x-header>This is the page title.</x-header>
+    <br>
+    <group title="用户登录">
+      <x-input title="手机号码" name="mobile" placeholder="请输入手机号码" keyboard="number" is-type="china-mobile"></x-input>
+    </group>
+
+     
     </div>
     <group title="cell demo">
       <cell title="VUX" value="cool" is-link></cell>
@@ -11,12 +17,14 @@
 </template>
 
 <script>
-import { Group, Cell } from 'vux'
+import { Group, Cell, XInput, XButton } from 'vux'
 
 export default {
   components: {
     Group,
-    Cell
+    Cell,
+    XButton,
+    XInput,
   },
   data () {
     return {
