@@ -24,7 +24,18 @@ export default {
     Aler,
     XHeader
   },
-
+methods: {
+  login() {
+    if(this.password === '123456'){
+      this.router.push({ path: '/'})
+    }else{AlertModule.show({
+      title: "登陆失败",
+      content: "密码错误"
+    })
+      
+    }
+  }
+}
 }
 </script>
 
