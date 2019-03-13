@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { Tabbar, TabbarItem, Group, Cell, XHeader, Grid, GridItem, Swiper, Panel, Checklist } from 'vux'
+import { Tabbar, TabbarItem, Group, Cell, XHeader, Grid, GridItem, Swiper, Panel, Checklis } from 'vux'
 
 const baseList = [{
   url: 'javascript:',
