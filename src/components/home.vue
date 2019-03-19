@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <x-header :right-options="{showMore: true}" :left-options="{showBack: false}">我爱读书</x-header>
+    <x-header style="background-color:#1D62F0 " :right-options="{showMore: true}" @on-click-more="Login" :left-options="{showBack: false}">我爱读书</x-header>
     <swiper loop auto :list="img_list" :index="img_index"></swiper>
     <grid :cols="4" :show-lr-borders="false">
-      <grid-item :label="('选项')" v-for="i in 8" :key="i">
-        <img slot="icon" src="../assets/option.png">
+      <grid-item :label="('Grid')" v-for="i in 8" :key="i">
+        <img slot="icon" src="../assets/grid_icon.png">
       </grid-item>
     </grid>
     <panel :header="'推荐'" :footer="footer" :list="list" :type="type"></panel>
@@ -17,21 +17,21 @@
         <img slot="icon" src="../assets/book.png">
         <span slot="label">书籍</span>
       </tabbar-item>
-      <tabbar-item selected link="/component/demo">
+      <tabbar-item selected link="/now">
         <img slot="icon" src="../assets/map.png">
-        <span slot="label">附近</span>
+        <span slot="label">周边</span>
       </tabbar-item>
       <tabbar-item badge="2">
         <img slot="icon" src="../assets/mine.png">
         <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
-    <checklist :title="$t('Preselect China and Japan (disabled)')" disabled label-position="left" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
+    
   </div>
 </template>
 
 <script>
-import { Tabbar, TabbarItem, Group, Cell, XHeader, Grid, GridItem, Swiper, Panel, Checklis } from 'vux'
+import { Tabbar, TabbarItem, Group, Cell, XHeader, Grid, GridItem, Swiper, Panel } from 'vux'
 
 const baseList = [{
   url: 'javascript:',
@@ -57,7 +57,6 @@ const urlList = baseList.map((item, index) => ({
 
 export default {
   components: {
-    Checklis,
     Panel,
     XHeader,
     Tabbar,
@@ -67,6 +66,25 @@ export default {
     Grid,
     GridItem,
     Swiper
+  },
+  methods: {
+    Login () {
+      this.$router.push('/Login')
+    }
+  },
+  created () {
+    let _this = this
+    this.$http.post('https://api.apiopen.top/getJoke').then(({data}) => {
+      console.log(data)
+      var new_data = data.result.map((item, index) => ({
+        src: item.header,
+        fallbackSrc: item.header,
+        title: item.name,
+        desc: item.text
+      }))
+      console.log(new_data)
+      _this.list = new_data
+    })
   },
   data () {
     return {
@@ -104,6 +122,7 @@ export default {
           source: '来源信息',
           date: '时间',
           other: '其他信息'
+          // iconType: '',
         }
       }],
       footer: {
