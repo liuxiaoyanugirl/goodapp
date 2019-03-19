@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": ".git"
+		},
+		{
+			"path": "build"
+		},
+		{
+			"path": "config"
+		},
+		{
+			"path": "node_modules"
+		},
+		{
+			"path": "src"
+		},
+		{
+			"path": "static"
+		},
+		{
+			"path": "test"
+		}
+	]
+}
