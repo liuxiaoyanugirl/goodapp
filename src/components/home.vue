@@ -4,7 +4,7 @@
     <swiper loop auto :list="img_list" :index="img_index"></swiper>
     <grid :cols="4" :show-lr-borders="false">
       <grid-item :label="('Grid')" v-for="i in 8" :key="i">
-        <img slot="icon" src="../assets/grid_icon.png">
+        <img slot="icon" src="../assets/share.png">
       </grid-item>
     </grid>
     <panel :header="'推荐'" :footer="footer" :list="list" :type="type"></panel>
